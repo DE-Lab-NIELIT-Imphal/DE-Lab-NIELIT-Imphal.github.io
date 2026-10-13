@@ -28,22 +28,4 @@ export const defaultLabStats: LabStat[] = [
     sectionId: 'achievements',
     iconName: 'award',
   },
-  {
-    id: 'stat-workstations',
-    label: 'Avionics Workstations',
-    targetNumber: 28,
-    suffix: '',
-    description: 'Equipped hardware benches in modern DE Lab Akampat',
-    sectionId: 'library',
-    iconName: 'cpu',
-  },
-  {
-    id: 'stat-projects',
-    label: 'Funded Projects & Grants',
-    targetNumber: 12,
-    suffix: '+',
-    description: 'Sponsored by MeitY, DST & State Govt. initiatives',
-    sectionId: 'achievements',
-    iconName: 'briefcase',
-  },
 ]

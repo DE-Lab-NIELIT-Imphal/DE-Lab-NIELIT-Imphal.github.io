@@ -3,7 +3,6 @@ import {
   HashRouter as Router,
   Routes,
   Route,
-  Navigate,
   useLocation,
 } from 'react-router-dom'
 import { Navbar } from './components/common/Navbar'
@@ -11,6 +10,7 @@ import { Footer } from './components/common/Footer'
 import { HomePage } from './pages/HomePage'
 import { AnnouncementsPage } from './pages/AnnouncementsPage'
 import { LibraryPage } from './pages/LibraryPage'
+import { NotFoundPage } from './pages/NotFoundPage'
 import { dataService } from './services/dataService'
 import type {
   Announcement,
@@ -132,7 +132,7 @@ export const App = () => {
                 />
               }
             />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
 

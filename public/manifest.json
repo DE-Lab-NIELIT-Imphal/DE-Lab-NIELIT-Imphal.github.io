@@ -1,0 +1,21 @@
+{
+  "name": "Drone Electronics Laboratory - NIELIT Imphal",
+  "short_name": "DE Lab",
+  "description": "Center of Excellence for UAV Avionics, Flight Systems & Autonomous Robotics at NIELIT Imphal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

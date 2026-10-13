@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | DE Lab - NIELIT Imphal</title>
+    <meta
+      name="description"
+      content="Page not found. Redirecting to Drone Electronics Laboratory (DE Lab), NIELIT Imphal."
+    />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-bg: #f8fafc;
+        --color-card: #ffffff;
+        --color-primary: #1e3a8a;
+        --color-primary-hover: #172554;
+        --color-text-main: #0f172a;
+        --color-text-muted: #64748b;
+        --color-border: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text-main);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+
+      .not-found-card {
+        background-color: var(--color-card);
+        border: 1px solid var(--color-border);
+        border-radius: 1.25rem;
+        padding: 2.5rem 2rem;
+        max-width: 32rem;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .logo-img {
+        height: 4rem;
+        width: auto;
+        margin: 0 auto 1.25rem;
+        display: block;
+      }
+
+      .error-code {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .error-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-text-main);
+        margin-bottom: 0.75rem;
+      }
+
+      .error-desc {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        margin-bottom: 1.75rem;
+      }
+
+      .home-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-primary);
+        color: #ffffff;
+        font-size: 0.875rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 0.75rem;
+        transition: background-color 0.2s ease;
+      }
+
+      .home-btn:hover {
+        background-color: var(--color-primary-hover);
+      }
+    </style>
+    <script>
+      // Single Page Application URL recovery for GitHub Pages
+      (function () {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        
+        // If the user accessed a direct sub-path like /announcements or /library
+        if (path && path !== '/' && path !== '/index.html' && path !== '/404.html') {
+          // Normalize leading slash
+          var subRoute = path.replace(/^\/+/, '');
+          // Redirect to HashRouter location
+          window.location.replace('/#' + '/' + subRoute + search + hash);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="not-found-card">
+      <img
+        src="/logo.png"
+        alt="NIELIT Imphal Drone Electronics Laboratory Logo"
+        class="logo-img"
+      />
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-desc">
+        The page you are looking for might have been moved, removed, or is temporarily unavailable.
+      </p>
+      <a href="/" class="home-btn">
+        Return to DE Lab Home
+      </a>
+    </main>
+  </body>
+</html>
