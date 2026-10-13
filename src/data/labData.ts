@@ -1,0 +1,6 @@
+export { defaultPeople } from './peopleData'
+export { defaultPublications } from './publicationsData'
+export { defaultAchievements } from './achievementsData'
+export { defaultAnnouncements } from './announcementsData'
+export { defaultLabStats } from './statsData'
+export { defaultCarouselSlides, defaultGalleryImages } from './mediaData'

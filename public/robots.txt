@@ -1,0 +1,7 @@
+# Robots.txt for Drone Electronics Laboratory (DE Lab), NIELIT Imphal
+User-agent: *
+Allow: /
+
+# Host & Canonical Sitemap
+Host: https://de-lab-nielit-imphal.github.io
+Sitemap: https://de-lab-nielit-imphal.github.io/sitemap.xml
