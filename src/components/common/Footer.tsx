@@ -41,9 +41,9 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-sm font-semibold text-slate-700">
               <li>
-                <a href="#about" className="hover:text-blue-900 transition-colors">
+                <Link to="/about" className="hover:text-blue-900 transition-colors">
                   About DE Lab
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/announcements" className="hover:text-blue-900 transition-colors">
@@ -51,19 +51,19 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#people" className="hover:text-blue-900 transition-colors">
+                <Link to="/people" className="hover:text-blue-900 transition-colors">
                   Faculty & Researchers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#publications" className="hover:text-blue-900 transition-colors">
+                <Link to="/publications" className="hover:text-blue-900 transition-colors">
                   Publications & Patents
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#achievements" className="hover:text-blue-900 transition-colors">
+                <Link to="/achievements" className="hover:text-blue-900 transition-colors">
                   Grants & Achievements
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/library" className="hover:text-blue-900 transition-colors">

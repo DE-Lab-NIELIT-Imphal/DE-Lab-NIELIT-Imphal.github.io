@@ -11,19 +11,23 @@ interface NavbarProps {
 export const Navbar = ({ announcements }: NavbarProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
-  const isHomePage = location.pathname === '/'
 
   const navLinks = [
-    { label: 'About', href: isHomePage ? '#about' : '/#about' },
-    { label: 'People', href: isHomePage ? '#people' : '/#people' },
-    { label: 'Publications', href: isHomePage ? '#publications' : '/#publications' },
-    { label: 'Achievements', href: isHomePage ? '#achievements' : '/#achievements' },
-    { label: 'Library', href: '/library', isRoute: true },
-    { label: 'Contact Us', href: isHomePage ? '#contact' : '/#contact' },
+    { label: 'About', href: '/about' },
+    { label: 'People', href: '/people' },
+    { label: 'Publications', href: '/publications' },
+    { label: 'Achievements', href: '/achievements' },
+    { label: 'Library', href: '/library' },
+    { label: 'Contact Us', href: '/contact' },
   ]
 
-  const handleLinkClick = () => {
+  const handleNavClick = (href: string) => {
     setMobileMenuOpen(false)
+    const sectionId = href.replace(/^\//, '')
+    const elem = document.getElementById(sectionId)
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -34,7 +38,7 @@ export const Navbar = ({ announcements }: NavbarProps) => {
           <Link
             to="/"
             className="flex items-center gap-3.5 group text-left"
-            onClick={handleLinkClick}
+            onClick={() => setMobileMenuOpen(false)}
           >
             <img
               src="/logo.png"
@@ -48,29 +52,20 @@ export const Navbar = ({ announcements }: NavbarProps) => {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {navLinks.map((link) =>
-              link.isRoute ? (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className={`px-3 py-2 text-sm xl:text-base font-bold rounded-lg transition-colors flex items-center gap-1 ${
-                    location.pathname === link.href
-                      ? 'text-blue-900 bg-blue-50'
-                      : 'text-slate-700 hover:text-blue-900 hover:bg-slate-50'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="px-3 py-2 text-sm xl:text-base font-bold rounded-lg text-slate-700 hover:text-blue-900 hover:bg-slate-50 transition-colors"
-                >
-                  {link.label}
-                </a>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`px-3 py-2 text-sm xl:text-base font-bold rounded-lg transition-colors flex items-center gap-1 ${
+                  location.pathname === link.href
+                    ? 'text-blue-900 bg-blue-50'
+                    : 'text-slate-700 hover:text-blue-900 hover:bg-slate-50'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Right Action Icons & Mobile Toggle */}
@@ -99,28 +94,17 @@ export const Navbar = ({ announcements }: NavbarProps) => {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl animate-in slide-in-from-top-2">
           <nav className="flex flex-col gap-1">
-            {navLinks.map((link) =>
-              link.isRoute ? (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  onClick={handleLinkClick}
-                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-900"
-                >
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400" />
-                </Link>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={handleLinkClick}
-                  className="px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-900"
-                >
-                  {link.label}
-                </a>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-900"
+              >
+                <span>{link.label}</span>
+                <ArrowUpRight className="w-4 h-4 text-slate-400" />
+              </Link>
+            ))}
           </nav>
         </div>
       )}

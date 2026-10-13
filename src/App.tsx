@@ -22,10 +22,18 @@ import type {
   Achievement,
 } from './types'
 
-// Automatically scrolls window to top when route path changes
+// Automatically scrolls window to top or to section target when route path changes
 const ScrollToTop = () => {
   const { pathname } = useLocation()
   useEffect(() => {
+    const sectionId = pathname.replace(/^\//, '')
+    if (sectionId) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+    }
     window.scrollTo(0, 0)
   }, [pathname])
   return null
@@ -99,21 +107,32 @@ export const App = () => {
         {/* Dynamic Route Pages */}
         <div className="flex-1">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  slides={slides}
-                  stats={stats}
-                  announcements={announcements}
-                  people={people}
-                  publications={publications}
-                  achievements={achievements}
-                  galleryImages={galleryImages}
-                  isLoading={isLoading}
-                />
-              }
-            />
+            {[
+              '/',
+              '/about',
+              '/people',
+              '/publications',
+              '/achievements',
+              '/contact',
+              '/stats',
+            ].map((sectionPath) => (
+              <Route
+                key={sectionPath}
+                path={sectionPath}
+                element={
+                  <HomePage
+                    slides={slides}
+                    stats={stats}
+                    announcements={announcements}
+                    people={people}
+                    publications={publications}
+                    achievements={achievements}
+                    galleryImages={galleryImages}
+                    isLoading={isLoading}
+                  />
+                }
+              />
+            ))}
             <Route
               path="/announcements"
               element={
