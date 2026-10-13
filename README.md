@@ -87,9 +87,8 @@ Official web portal and information repository for the **Drone Electronics Labor
 3. **Environment Configuration**:
    Create a `.env` file in the project root:
    ```env
-   VITE_GOOGLE_SHEETS_API_URL="https://script.google.com/macros/s/AKfycbx3nVhHa_tpYkbxLq0JqasDL3Og32eeU7YdXQuz3QSaCDXYCcJBtwVMs5FhEa0U6Dxy/exec"
+   VITE_GOOGLE_SHEETS_API_URL="https://script.google.com/macros/s/YOUR_APPS_SCRIPT_DEPLOYMENT_ID/exec"
    ```
-   *(A default production endpoint is built into `dataService.ts` as a reliable fallback).*
 
 4. **Run the local development server**:
    ```bash
